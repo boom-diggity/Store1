@@ -1,0 +1,33 @@
+import sys
+v,n=map(int,sys.stdin.readline().split())
+
+#에라토스테네스의 체로 n보다 작은 소수들을 찾아 prime배열에 넣어준다.
+
+a = [False,False] + [True]*(n-1)
+primes=[]
+
+for i in range(2,n,1):
+  if a[i]:
+    primes.append(i)
+    for j in range(2*i, n, i):
+        a[j] = False
+
+
+
+# 입력받은 수 v가 n보다 작은 소수로 나누어지면 답은 False, 아니면 True
+for i in primes:
+        if v%i==0:
+                answer=False
+                prime=i
+                break
+        else:
+                answer=True
+# 만약 n이 2이면 소수가 없음 => GOOD 이 나와야한다.
+if n == 2:
+        answer=True
+#출력하기
+        
+if answer==False:
+        print("BAD",prime)
+else:
+        print("GOOD")
