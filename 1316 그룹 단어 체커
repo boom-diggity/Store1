@@ -1,0 +1,26 @@
+'''그룹 단어란 단어에 존재하는 모든 문자에 대해서, 각 문자가 연속해서 나타나는 경우만을 말한다. 예를 들면, ccazzzzbb는 c, a, z, b가 모두 연속해서 나타나고, kin도 k, i, n이 연속해서 나타나기 때문에 그룹 단어이지만, aabbbccb는 b가 떨어져서 나타나기 때문에 그룹 단어가 아니다.
+
+단어 N개를 입력으로 받아 그룹 단어의 개수를 출력하는 프로그램을 작성하시오.'''
+
+num=int(input())
+n=0
+for _ in range(num):
+        an='' #초기화
+        target=[]
+        past='?'
+        
+        L=list(input()) # 리스트로 문자열 입력받기
+        
+        for i in L:
+                if past==i: # 이전 문자와 같으면 추가
+                        target.append(i)
+                        continue
+                else: #이전 문자와 다르면
+                        if target.count(i) > 0: #이전 문자들에 있던 문자중에서 중복된것이 있으면 false
+                                an=False
+                        target.append(i)# 중복된 것이 없으면 추가하기
+                        past=i #이전문자 업데이트
+
+        if an != False :
+                n+=1
+print(n)
