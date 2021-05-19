@@ -1,0 +1,13 @@
+natural=set(range(1,10001))
+make=set()
+''' 이문제는 set으로 중복된 숫자를 제거하고 자연수에서 make 수를 뺀 self 넘버를 찾는 방법이다
+주어진 숫자를 문자열로 바꾸고 루프를 이용해 각 자리수를 더하여 다시 정수로 바꾸어 구한다.'''
+
+for i in range(1,10001):
+        for j in str(i):
+            i += int(j)
+        make.add(i)
+self=natural.difference(make)
+self=sorted(self)
+for i in self:
+        print(i)
