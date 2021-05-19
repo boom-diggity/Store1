@@ -1,0 +1,21 @@
+'''Mississipi ==> ?'''
+
+
+sen=input().upper()
+past=0
+L=list(set(sen))
+want='?'
+
+for i in L:
+        count=sen.count(i)
+        
+        if want == i:
+                continue
+        elif past<count :
+                past=count
+                want=i
+        elif past==count :
+                want='?'
+        else:
+                continue
+print(want)
