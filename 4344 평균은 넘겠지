@@ -1,0 +1,12 @@
+n=int(input())
+for i in range(n):
+        num=0
+        L=[int(x) for x in input().split()]
+        hap=sum(L[1:])
+        average=hap/L[0]
+        for score in L[1:]:
+                if average < score:
+                        num +=1 
+        percent=(num/L[0])*100
+        print('{:.3f}%'.format(percent))
+        
