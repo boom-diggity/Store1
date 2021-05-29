@@ -1,0 +1,19 @@
+n=int(input())
+L=[int (x) for x in input().split()]
+r=2 ; count=0
+for i in L:
+        if i==1:                                #1이면 넘겨
+                continue
+        elif i==2:                              #2이면 소수
+                count+=1
+        else:
+                while True:
+                        if i%r==0:              #나누어지면
+                                if i==r:        #자기로만 나누어지면 소수 아니면 소수아님
+                                        count+=1
+                                break
+                        else:
+                               r+=1
+
+                r=2
+print(count)
