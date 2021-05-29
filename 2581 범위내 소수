@@ -1,0 +1,26 @@
+m=int(input())
+n=int(input())
+
+L=[int(x) for x in range(m,n+1)]
+r=2
+prime=[]
+for i in L:
+        if i==1:                                #1이면 넘겨
+                continue
+        elif i==2:                              #2이면 소수
+                prime.append(i)
+        else:
+                while True:
+                        if i%r==0:              #나누어지면
+                                if i==r:        #자기로만 나누어지면 소수 아니면 소수아님
+                                        prime.append(i)
+                                break
+                        else:
+                               r+=1
+
+                r=2
+if prime==[]:
+        print(-1)
+else:
+        print(prime[0])
+        print(sum(prime))
