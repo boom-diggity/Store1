@@ -1,0 +1,86 @@
+
+// 배열을 출력하는 함수
+
+void printArray(const int array[], int length)
+{
+	for (int index = 0; index < length; ++index)
+	{
+		cout << array[index] << " ";
+
+	}cout << endl;
+}
+
+// 버블정렬 함수
+void bubble_sort( int array[], int length)
+{
+	for (int i = 0; i < length - 1; ++i)
+	{
+		for (int j = 0; j < length - 1 - i; ++j)
+		{
+			if (array[j] > array[j + 1])
+			{
+				int temp = array[j];
+				array[j] = array[j + 1];
+				array[j + 1] = temp;
+			}
+		}
+
+	}
+	
+}
+
+
+int main()
+	
+{	
+	const int length = 8;
+
+	int array[length], orign[length];
+
+	for (int i = 0; i < length; ++i)
+	{
+		int value;
+		cin >> value;
+		array[i] = value;
+	}
+
+	copy(array, array + 8, orign); // copy array to orign ,, 배열을 복사한다 copy(복사하고 싶은 배열, 복사하고 싶은 배열 + 길이, 복사한 새로운 배열)
+
+	selection_sort(array, length);
+	
+	int index_array[5];
+	int a = 0;
+
+	// 원래 배열에서 정렬된 배열을 뒤에서 부터 숫자를 찾아 인덱스를 따로 배열에 보관하는 방식이다.
+	// 정렬된 배열에서 마지막 숫자가 원래 배열에서 몇번째 였는지 찾고 인덱스를 index_array에 보관하는 방식이다.
+
+	for (int i = length - 1; i > length - 1-5; --i)
+	{
+		int search = array[i];
+		
+		for (int j = 0; j < length; ++j)
+		{
+			if (search == orign[j])
+			{
+				index_array[a] = j+1;
+				++a;
+			}
+		}
+
+	}
+	
+	selection_sort(index_array, 5);
+	
+	
+	int total = 0;;
+
+	for (int i = length - 1; i > length - 1 - 5; --i)
+	{
+		total += array[i];
+	}
+	cout << total << endl;
+	printArray(index_array, 5);
+	
+	return 0;
+
+}
