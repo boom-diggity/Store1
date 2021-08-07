@@ -1,0 +1,46 @@
+#include <iostream> 
+#include <ctime>
+#include <random>
+using namespace std;
+
+
+
+void printArray(const int array[], int length)
+{
+	for (int index = 0; index < length; ++index)
+	{
+		cout << array[index] << " ";
+
+	}cout << endl;
+}
+int main()
+	
+{	
+	
+	int array[] = { 3,5,2,1,4,3,4,1,1};
+	const int length = sizeof(array) / sizeof(int);
+	
+	
+	for (int i = 0; i < length; ++i)
+	{
+		int index = i;
+		for (int j = i; j < length; ++j)
+		{
+			if (array[index] > array[j])
+			{
+				index = j;
+			}
+		}
+		int temp = array[index];
+		array[index] = array[i];
+		array[i] = temp;
+		//std::swap 으로도 구현할 수 있다.
+
+	}
+	printArray(array, length);
+	return 0;
+
+}
+
+
+
