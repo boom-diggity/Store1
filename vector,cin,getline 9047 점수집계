@@ -1,0 +1,85 @@
+#include <iostream> 
+#include <algorithm>	
+#include <vector>
+#include <string>
+#include <array>
+#include <tuple>
+#include <limits>
+using namespace std;
+
+
+void bubble_sort_vector( vector<int> &arr, int length)
+{
+	for (int i = 0; i < length - 1; ++i)
+	{
+		for (int j = 0; j < length - 1 - i; ++j)
+		{
+			if (arr[j] > arr[j + 1])
+			{
+				int temp = arr[j];
+				arr[j] = arr[j + 1];
+				arr[j + 1] = temp;
+			}
+		}
+	}
+}
+
+void printElement(const vector<int> &arr, int length)
+//void printElement(int(&arr)[5]) // []안에 element 수가 들어가야한다.
+{
+	for (int index = 0; index < length; ++index)
+	{
+		cout << arr[index] << " ";
+	}
+	cout << endl;
+}
+
+
+int main()
+
+{
+	int test_case;
+	string s;
+	cin >> test_case;
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	
+	
+	
+	for (int i = 0; i < test_case; ++i)
+	{
+		string s;
+		vector<int> v;
+		getline(cin, s);
+		int idx = 0;
+
+		for (int i = 0; i < s.size(); i++)
+		{
+			if (s[i] == ' ')
+			{
+				v.push_back(stoi(s.substr(idx, i - idx))); //숫자를 char->int
+				idx = i + 1;
+			}
+
+		}
+		v.push_back(stoi(s.substr(idx))); // 마지막 숫자를 char->int
+		bubble_sort_vector(v, v.size());
+		
+		int n = v[3] - v[1];
+		if (n < 4)
+		{
+			cout << v[1]+ v[2] + v[3]  << endl;
+		}
+		else
+			cout << "KIN" << endl;
+	}
+
+
+
+
+	return 0;
+
+}
+
+
+
+
