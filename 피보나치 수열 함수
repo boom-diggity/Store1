@@ -1,0 +1,31 @@
+
+//0 1 1 2 3 5 8 13 
+int fibonacci(int n)
+{
+	if (n > 2)
+	{
+		const int result = fibonacci(n - 1)+ fibonacci(n-2);
+		return result ;
+	}
+	else if (n ==2)
+		return 1;
+	
+	else //n < 2
+		return 0;
+	
+	
+}
+//함수는 주소로 저장이 되는 것 이기 때문이다.
+int main()
+
+{	
+	int n;
+	cin >> n;
+	for (int i = 1; i <= n ; ++i)
+	{
+		cout << fibonacci(i) << " ";
+	}
+		
+	return 0;
+
+}
