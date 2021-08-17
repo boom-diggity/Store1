@@ -1,0 +1,72 @@
+#include <iostream> 
+#include <algorithm>	
+#include <vector>
+#include <string>
+#include <limits>
+
+
+using namespace std;
+
+void printArray(const int array[], int length)
+{
+	for (int index = 0; index < length; ++index)
+	{
+		cout << array[index] << " ";
+	}cout << endl;
+}
+
+void printElement(const vector<int> &arr)
+//void printElement(int(&arr)[5]) // []안에 element 수가 들어가야한다.
+{
+	for (auto& e : arr)
+	{
+		cout << e << " ";
+	}cout << endl;
+}
+
+
+int main()
+
+{	
+
+	int test_case;
+	cin >> test_case;
+	for (int i = 0; i < test_case; ++i)
+	{
+		int p, m;
+		cin >> p >> m;
+
+		int* array = new int[m] (); //자리 개수 배열
+		//printArray(array, m); //잘 만들어 졌는지 확인
+		int dont = 0; // 못가는 사람 수
+		int want;
+		for (int i = 0; i < p; ++i) //p번 루프 -> 사람수를 원소에 넣기
+		{
+			cin >> want;//앉고 싶은 자리
+			array[want-1]++; //배열 상 want-1자리에 1추가
+		}
+
+		//printArray(array,m); //잘 넣어졌는지 확인
+
+		for (int i=0; i< m ; ++i) // m번 루프 -> 배열 사이즈!!
+		{
+			if (array[i] > 1)
+				dont+= array[i] -1;// 못가는 사람수 = 원하는 사람수 -1
+		}
+		cout << dont << endl; 
+
+		delete[] array;
+	}
+
+
+
+
+	
+		
+	return 0;
+
+}
+
+
+
+
