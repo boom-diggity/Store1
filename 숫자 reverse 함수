@@ -1,0 +1,50 @@
+///123 -> 321
+
+#include <iostream> 
+#include <algorithm>	
+#include <vector>
+#include <cmath>
+using namespace std;
+
+
+
+int rev(int n)
+{
+	int rev = 0;
+	vector <int> v;
+
+	int digit = 0;
+	while (n) //v에 값 넣어주기
+	{
+		v.push_back(n % 10); //마지막 수 넣기
+		n /= 10; //10으로 나누어주기 254 ->25
+		digit += 1; //자릿수 1추가
+	}
+	
+	for (int i = digit - 1, j = 0; i >= 0, j < digit; --i, ++j) // 2 1 0
+	{
+		rev += v[j] * pow(10, i);
+	}
+	return rev;
+}
+
+
+int main()
+
+{	
+	
+	
+	int n,m;
+	cin >> n>>m;
+	int sum = rev(n) + rev(m);
+	cout << rev(sum);
+	
+	
+	return 0;
+
+
+}
+
+
+
+
