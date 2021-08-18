@@ -1,0 +1,32 @@
+#include <iostream> 
+#include <algorithm>	
+#include <string>
+
+using namespace std;
+
+
+
+int main()
+
+{	
+	
+	string st;
+	cin >> st;
+	for (int i = 0; i < st.size(); ++i)
+	{
+		int num = static_cast<int>(st[i]);
+		if (num > 96)
+			num -= 32;
+		else
+			num += 32;
+		cout << static_cast<char>(num);
+	}
+
+	
+
+
+}
+
+
+
+
