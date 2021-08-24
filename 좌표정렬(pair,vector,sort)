@@ -1,0 +1,49 @@
+#include <iostream> 
+#include <vector>
+#include <algorithm>
+//11650 백준 c++
+using namespace std;
+
+
+bool compare(pair<int, int>& a, pair<int, int>& b)
+{
+	if (a.first == b.first)
+		return a.second < b.second;
+	return a.first < b.first;
+}
+
+
+
+int main()
+
+{
+
+	vector<pair<int,int>> v;
+	int test_case;
+	cin >> test_case;
+
+	for (int i = 0; i < test_case; ++i)
+	{
+		int n, m;
+		cin >> n >> m;
+		v.push_back(make_pair(n, m));
+	}
+	
+	
+	sort(v.begin(), v.end(),compare); //sort(v.begin(), v.end()); 해도 가능
+	
+	for (int i = 0; i < test_case; ++i)
+	{
+		cout << v[i].first << " " << v[i].second << '\n';
+	}
+	
+	
+
+
+/// 시간초과일때는 endl 보다 '\n'을 사용하자!!!!!!!
+
+
+
+	return 0;
+
+}
