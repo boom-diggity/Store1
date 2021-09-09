@@ -1,0 +1,23 @@
+
+
+void Permutation(vector<string>& array, int start, int end)
+{
+	if (start == end)
+	{
+		for (const auto it : array)
+		{
+			cout << it << " ";
+		}
+		cout << endl;
+	}
+	else
+	{
+		for (int i = start; i <= end; ++i)
+		{
+			swap(array[start], array[i]);
+			Permutation(array, start + 1, end);
+			swap(array[start], array[i]);
+		}
+	}
+}
+
