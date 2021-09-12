@@ -1,0 +1,14 @@
+
+int Factorial(int number)
+{
+	if (number > 0)
+	{
+		int n = (Factorial(number - 1));
+		number = n * number;
+		return number;
+	}
+	else // number==0
+	{
+		return 1;
+	}
+}
