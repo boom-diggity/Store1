@@ -6,4 +6,33 @@ t4=t3+1+t3=15 즉 4개를 올리는데 걸리는 시간은 3개를 일단 올리
 4번째꺼를 옮기고 다시 그위에 3개를 올리는데 걸리는 시간이다.
 즉 tn=t(n-1)+t(n-1)=2^n-1
 /*
+#include <iostream>
+#include <cmath>
+using namespace std;
 
+void hanoi(int num,  int start, int pass, int to)
+{
+	if (num == 1)
+	{
+		cout <<start<<" "<<to<<'\n'; 
+	}
+	else
+	{
+		hanoi(num - 1, start, to, pass); //n-1번째 원판을 3번째 장대를 거쳐 2번째 장대에 쌓기
+		cout << start << " " << to << '\n'; // n번째 원판을 3번째
+		hanoi(num-1 , pass , start, to); //2번째에 쌓은 원판들을 3번째 장대에 다시 쌓기
+	}
+}
+
+int main()
+{
+	int num;
+	cin >> num;
+
+	cout << (int)pow(2, num) - 1 << '\n'; 
+	hanoi(num, 1, 2, 3);
+
+
+	return 0;
+
+}
