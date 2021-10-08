@@ -1,0 +1,35 @@
+//유클리드 호제법
+void func_gcd(int a, int b, int* gcd)
+{
+	int remainder = 0;
+	if (b > a)
+	{
+		int temp = a;
+		a = b;
+		b = temp;
+	}
+
+	remainder = a % b;
+
+	if (remainder == 0)
+	{
+		*gcd = b;
+		return;
+	}
+	else
+	{
+		a = b;
+		b = remainder;
+
+		func_gcd(a, b, gcd);
+	}
+}
+
+int gcd = 1;
+
+int a, b;
+		cin >> a >> b;
+		func_gcd(a, b, &gcd);
+cout << (a * b) / gcd <<" " <<gcd << '\n'; // 최소공배수 최대공약수 
+
+//최소공배수 = 두 수의 곱 / 최대공약수
