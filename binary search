@@ -1,0 +1,25 @@
+for (j = 0; j < m; ++j)
+	{
+		int left = 0;
+		int right = n - 1;
+		int an = 0;
+		int target = arrm[j];
+		//cout << "target " << arrm[j] << "\n";
+		while (left <= right)
+		{
+			int mid = (left + right) / 2;
+			//cout << "mid " << arrn[mid] << "\n";
+			if (arrn[mid] == target)
+			{
+				an = 1;
+				break;
+			}
+			else if (arrn[mid] < target)
+			{
+				left = mid + 1;
+			}
+			else
+				right = mid - 1;
+		}
+		cout << an << "\n";
+	}
