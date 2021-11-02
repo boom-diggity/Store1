@@ -1,0 +1,16 @@
+
+void insertSort(int arr[], int length)
+{
+	
+	for (int i = 1; i < length; ++i)
+	{	
+		int j = i;
+		while (arr[j] < arr[j - 1] && j>0)
+		{
+			int temp = arr[j];
+			arr[j] = arr[j - 1];
+			arr[j - 1] = temp;
+			--j;
+		}
+	}
+}
