@@ -1,0 +1,62 @@
+/* 상한은 큰 수중 첫번째 숫자이고
+	하한은 크거나 같은 수 중 첫번째 숫자이다.
+	1 1 2 2 4 4 4 4 5 5 6 6 6 6
+
+여기서 4의 상한을 찾아보면 상한은 큰 수 중 첫번째 숫자니까
+
+1 1 2 2 4 4 4 4 '5' 5 6 6 6 6 이 첫번째 5이고 인덱스는 8이고
+
+4의 하한을 찾아보면 하한은 크거나 같은 수 중 첫 번째 숫자니까
+
+1 1 2 2 '4' 4 4 4 5 5 6 6 6 6 이 첫번째 4이고 인덱스는 4이다.
+즉 8-4 =4 이고 4의 개수는 4개이다.
+
+lower_bound, upper_bound는 algorithm 헤더에 있다.
+lower_bound(a.begin(),a.end(),number) -> vector a에서 number의 lower bound의 인덱스 주소를 뜻한다.
+	*/
+  
+#include <iostream> 
+#include <algorithm>
+#include <vector>
+
+int main()
+{
+
+	int n,m;
+	vector <int> nn;
+	ios::sync_with_stdio(false);
+	cin.tie(nullptr);
+	
+
+	int num;
+	cin >> n;
+	for (int i = 0; i < n; ++i)
+	{
+		cin >> num;
+		nn.push_back(num);
+	}
+	
+	sort(nn.begin(), nn.end());
+
+	cin >> m;
+	for (int i = 0; i < m; ++i)
+	{
+		cin >> num;
+		auto l = lower_bound(nn.begin(), nn.end(), num);
+		auto u = upper_bound(nn.begin(), nn.end(), num);
+		cout << u - l << " ";
+
+	} cout << "\n";
+	
+	
+			
+	
+	
+
+
+	
+	return 0;
+
+
+
+}
